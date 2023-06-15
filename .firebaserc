@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "task-auth-afa8d": {
+      "hosting": {
+        "Task": [
+          "task-auth-afa8d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "task-auth-afa8d"
+  }
+}

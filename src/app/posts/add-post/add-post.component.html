@@ -1,0 +1,101 @@
+<section *ngIf="param">
+  <div class="container text-center border-1 border my-5 shadow">
+    <div class="row d-flex justify-content-center ">
+      <h1  class="my-4">Update Posts</h1>
+      <div class="d-flex justify-content-center">
+        <form [formGroup]="formAdd" (ngSubmit)="updatePost(formAdd)" class="form my-3">
+          <mat-form-field class="w-100 d-block" appearance="outline">
+            <mat-label>Title </mat-label>
+            <input matInput   placeholder="Ex. qui est esse" formControlName="title" [(ngModel)]="post.title" />
+
+            <mat-error *ngIf="formAdd.get('title')?.hasError('required')">
+              Title is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100 d-block" appearance="outline">
+            <mat-label>body</mat-label>
+            <textarea
+            rows="10" style="height:100%;"
+              matInput
+              placeholder="Ex. It makes me feel..."
+              formControlName="body"
+              [(ngModel)]="post.body"
+            ></textarea>
+            <mat-error *ngIf="formAdd.get('body')?.hasError('required')">
+              body is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100 d-block" appearance="outline">
+            <mat-label>userId </mat-label>
+            <input matInput type="number"  placeholder="1" formControlName="userId" [(ngModel)]="post.userId"/>
+
+            <mat-error *ngIf="formAdd.get('userId')?.hasError('required')">
+              userId is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <button
+          [disabled]="formAdd.invalid"
+          mat-raised-button
+          color="primary"
+          class="w-25 btn btn-primary"
+        >
+          Update Post
+        </button>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+<section *ngIf="!param">
+  <div class="container text-center border-1 border my-5 shadow">
+    <div class="row d-flex justify-content-center ">
+      <h1  class="my-4">Add Posts</h1>
+      <div class="d-flex justify-content-center">
+        <form [formGroup]="formAdd" (ngSubmit)="AddPost(formAdd)" class="form my-3">
+          <mat-form-field class="w-100 d-block" appearance="outline">
+            <mat-label>Title </mat-label>
+            <input matInput   placeholder="Ex. qui est esse" formControlName="title" />
+
+            <mat-error *ngIf="formAdd.get('title')?.hasError('required')">
+              Title is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100 d-block" appearance="outline">
+            <mat-label>body</mat-label>
+            <textarea
+            rows="10" style="height:100%;"
+              matInput
+              placeholder="Ex. It makes me feel..."
+              formControlName="body"
+            ></textarea>
+            <mat-error *ngIf="formAdd.get('body')?.hasError('required')">
+              body is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100 d-block" appearance="outline">
+            <mat-label>userId </mat-label>
+            <input matInput type="number"  placeholder="1" formControlName="userId" />
+
+            <mat-error *ngIf="formAdd.get('userId')?.hasError('required')">
+              userId is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <button
+          [disabled]="formAdd.invalid"
+          mat-raised-button
+          color="primary"
+          class="w-25 btn btn-primary"
+        >
+          Add Post
+        </button>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,10 @@
+.txet{
+  font-size: 1.5rem;
+}
+.icon{
+  position: absolute;
+  top:20px;
+  right: 20px;
+  color: red;
+  cursor: pointer;
+}

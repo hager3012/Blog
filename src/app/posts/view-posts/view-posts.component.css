@@ -1,0 +1,26 @@
+
+.fontawesomesvg {width: 1em;
+  height: 1em;
+  vertical-align: -.125em;
+}
+.title{
+  color: #FF4167;
+}
+.card{
+  cursor: pointer;
+  transition: all linear 0.2s;
+  position: relative;
+}
+.card:hover{
+  background-color: #FF4167;
+  color: white ;
+}
+
+.card:hover .title{
+  color: white;
+}
+.meuo{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}

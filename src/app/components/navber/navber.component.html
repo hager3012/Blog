@@ -1,0 +1,18 @@
+<mat-toolbar  class="p-3 d-flex justify-content-between flex-nowrap align-content-center bg-main">
+
+  <div class="d-flex justify-content-between flex-nowrap align-content-center">
+    <span class="mx-5 pt-2  text-light">My App</span>
+    <ul class="me-5  pe-5 nav ">
+      <a *ngIf="islogin" class=" nav-link text-light" routerLink="/panel/posts/All" routerLinkActive=" btn bg-light text-dark"><li >All Posts</li></a>
+      <a *ngIf="islogin" class=" nav-link text-light" routerLink="/panel/posts/control" routerLinkActive=" btn bg-light text-dark"><li >Control Post</li></a>
+
+    </ul>
+
+
+  </div>
+    <ul class="me-5  pe-5 nav ">
+      <a *ngIf="!islogin" class="ms-3 nav-link text-light  " routerLink="login" routerLinkActive=" btn bg-light text-dark"><li >Login</li></a>
+      <a *ngIf="!islogin" class=" nav-link text-light" routerLink="register" routerLinkActive=" btn bg-light text-dark"><li >Register</li></a>
+      <a *ngIf="islogin" class=" nav-link text-light" (click)="LogOut()" href=""><li >LogOut</li></a>
+  </ul>
+</mat-toolbar>

@@ -1,0 +1,26 @@
+<div class="container  my-5 px-1 position-relative">
+  <div class="row  shadow ">
+    <h1 class="text-primary ms-2">{{post.title}}</h1>
+    <h5 class="text-muted ms-5">user: {{post.userId}} </h5>
+    <p class="ms-5 my-3 txet "> {{post.body}} </p>
+  </div>
+  <mat-icon class=" ms-5 icon" *ngIf="isFavorite" (click)="clickFavorite()">favorite</mat-icon>
+  <mat-icon class=" ms-5 icon" *ngIf="!isFavorite" (click)="clickFavorite()">favorite_border</mat-icon>
+
+</div>
+<div class="container">
+  <h2 class="text-primary text-center">Comments</h2>
+  <div class="row row-cols-1 row-cols-md-1 g-4 my-5 ">
+
+    <div *ngFor="let post of comments" class="col">
+      <div class="card  h-100 shadow " [id]="post.id">
+        <div class="card-body" >
+          <h5 class="card-title title">{{post.name}}</h5>
+          <h5 class="text-muted ms-3">{{post.email}} </h5>
+          <p class="card-text"> {{post.body }} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
