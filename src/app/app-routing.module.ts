@@ -8,7 +8,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'panel/posts',pathMatch:'full'},
+  {path:'',redirectTo:'panel/posts/All',pathMatch:'full'},
   {path:'',component:AuthLayoutComponent,children:[
     {path:'login',component:LoginComponent,title:'Login'},
     {path:'register',component:RegisterComponent,title:'Register'}
