@@ -12,7 +12,6 @@
         <label for="password" class="password">password :</label>
         <input formControlName="password" type="password" class="form-control mb-2" id="password">
         <div *ngIf="loginForm.get('password')?.errors &&  loginForm.get('password')?.touched" class="alert alert-danger">
-            <p *ngIf="loginForm.get('password')?.getError('pattern')" class="m-0 ">the password is start Uppercase and the minLength is 3</p>
             <p *ngIf="loginForm.get('password')?.getError('required')" class="m-0 ">password is Required</p>
         </div>
         <div *ngIf="massError" class="alert alert-danger p-1 width">
