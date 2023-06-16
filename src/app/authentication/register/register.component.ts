@@ -18,7 +18,7 @@ export class RegisterComponent {
     private _Database:Database
   ) {}
 
-
+  hide = true;
   loginForm: FormGroup = this._fb.group({
     name:['',[Validators.required]],
     email: ['', [Validators.email, Validators.required]],

@@ -22,7 +22,7 @@ export class LoginComponent {
     private toastr: ToastrService
   ) {}
 
-
+  hide = true;
   loginForm: FormGroup = this._fb.group({
     email: ['', [Validators.email, Validators.required]],
     password: ['', [Validators.required]],

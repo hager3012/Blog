@@ -3,22 +3,47 @@
 		<form  [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
 			<h1>Sign in</h1>
 
-			<label for="email" class="email">email :</label>
-        <input formControlName="email" type="email" class="form-control mb-2 " id="email">
-        <div *ngIf="loginForm.get('email')?.errors &&  loginForm.get('email')?.touched" class="alert alert-danger p-1 ">
-            <p *ngIf="loginForm.get('email')?.getError('email')" class="m-0 ">email is invalid</p>
-            <p *ngIf="loginForm.get('email')?.getError('required')" class="m-0 ">email is Required</p>
-        </div>
-        <label for="password" class="password">password :</label>
-        <input formControlName="password" type="password" class="form-control mb-2" id="password">
-        <div *ngIf="loginForm.get('password')?.errors &&  loginForm.get('password')?.touched" class="alert alert-danger">
-            <p *ngIf="loginForm.get('password')?.getError('required')" class="m-0 ">password is Required</p>
-        </div>
-        <div *ngIf="massError" class="alert alert-danger p-1 width">
-          {{massError}}
-        </div>
+			<mat-form-field class="w-75  mt-5" appearance="outline">
+        <mat-label class="label-place">Email</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Ex. pat@example.com"
+        />
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-75" appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+        />
+        <button
+          type="button"
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+          class="btn "
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+          password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
         <a href="" class="w-100">
-          <button class="p-0 text-center "
+          <button class="p-0 text-center btnSinIn"
           [disabled]="loginForm.invalid"
               mat-raised-button >
             <p *ngIf="!isLoading" class="me-4 ms-4 mt-2 mb-2">Sign In</p>
@@ -36,7 +61,7 @@
 			<div class="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
 				<p>Enter your personal details and start journey with us</p>
-				<a routerLink="/register"><button class="ghost" id="signUp">Sign Up</button></a>
+				<a routerLink="/register"><button class="ghost btnSinIn" id="signUp">Sign Up</button></a>
 			</div>
 		</div>
 	</div>

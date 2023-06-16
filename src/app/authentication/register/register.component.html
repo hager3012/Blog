@@ -2,27 +2,60 @@
 	<div class="sign-up-container">
     <form  [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
 			<h1>Register</h1>
-      <label for="name" class="name">name :</label>
-        <input formControlName="name" type="name" class="form-control mb-2 " id="name">
-        <div *ngIf="loginForm.get('name')?.errors &&  loginForm.get('name')?.touched" class="alert alert-danger p-1 width">
-            <p *ngIf="loginForm.get('name')?.getError('required')" class="m-0 ">name is Required</p>
-        </div>
-			<label for="email" class="email">email :</label>
-        <input formControlName="email" type="email" class="form-control mb-2 " id="email">
-        <div *ngIf="loginForm.get('email')?.errors &&  loginForm.get('email')?.touched" class="alert alert-danger p-1 width">
-            <p *ngIf="loginForm.get('email')?.getError('email')" class="m-0 ">email is invalid</p>
-            <p *ngIf="loginForm.get('email')?.getError('required')" class="m-0 ">email is Required</p>
-        </div>
-        <label for="password" class="password">password :</label>
-        <input formControlName="password" type="password" class="form-control mb-2" id="password">
-        <div *ngIf="loginForm.get('password')?.errors &&  loginForm.get('password')?.touched" class="alert alert-danger p-1 width">
-            <p *ngIf="loginForm.get('password')?.getError('minlength')" class="m-0 ">the password is  the minLength is 6</p>
-            <p *ngIf="loginForm.get('password')?.getError('required')" class="m-0 ">password is Required</p>
-        </div>
-        <div *ngIf="massError" class="alert alert-danger p-1 width">
-          {{massError}}
-        </div>
-			<button class="p-0 text-center w-50"
+			<mat-form-field class="w-100 ms-3  mt-5" appearance="outline">
+        <mat-label class="label-place">Name</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="name"
+          placeholder="hager shaban"
+        />
+        <mat-error *ngIf="loginForm.get('name')?.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+        <mat-form-field class="w-100 ms-3" appearance="outline">
+          <mat-label class="label-place">Email</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+            placeholder="Ex. pat@example.com"
+          />
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 ms-3" appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+            class="btn "
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            password is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+            password min length is 6
+          </mat-error>
+        </mat-form-field>
+			<button class="p-0 text-center w-50 btnSinIn"
       [disabled]="loginForm.invalid"
           mat-raised-button>
         <p *ngIf="!isLoading" class="me-4 ms-4 mt-2 mb-2">Sign Up</p>
@@ -37,7 +70,7 @@
 			<div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
 				<p>To keep connected with us please login with your personal info</p>
-				<a routerLink="/login" ><button class="ghost" id="signIn"
+				<a routerLink="/login" ><button class="ghost btnSinIn" id="signIn"
           >Sign In</button></a>
 			</div>
 		</div>

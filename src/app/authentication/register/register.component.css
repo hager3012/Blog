@@ -46,7 +46,7 @@ a {
 	margin: 15px 0;
 }
 
-button {
+.btnSinIn{
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
@@ -82,15 +82,6 @@ form {
 input {
 	background-color: #eee;
 	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 90%;
-}
-label{
-  padding: 12px 15px 0;
-	margin: 8px 0 0 0;
-  text-align: start;
-  align-self: self-start;
 }
 .width{
   width: 90%;

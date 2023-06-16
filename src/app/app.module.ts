@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment.prod';
 import { provideAuth,getAuth,Auth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,7 @@ import { ToastrModule } from 'ngx-toastr';
     provideFirestore(()=>getFirestore()),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
