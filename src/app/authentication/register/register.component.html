@@ -54,7 +54,11 @@
           <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
             password min length is 6
           </mat-error>
+
         </mat-form-field>
+        <mat-error *ngIf="massError">
+          {{massError}}
+        </mat-error>
 			<button class="p-0 text-center w-50 btnSinIn"
       [disabled]="loginForm.invalid"
           mat-raised-button>

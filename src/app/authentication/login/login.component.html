@@ -41,7 +41,9 @@
           password is <strong>required</strong>
         </mat-error>
       </mat-form-field>
-
+      <mat-error *ngIf="massError">
+        {{massError}}
+      </mat-error>
         <a href="" class="w-100">
           <button class="p-0 text-center btnSinIn"
           [disabled]="loginForm.invalid"
